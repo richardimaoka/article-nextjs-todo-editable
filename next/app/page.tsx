@@ -1,13 +1,10 @@
+import { TodoApp } from "./components/TodoApp";
+import styles from "./page.module.css";
+
 export default function Home() {
   return (
-    <main>
-      <div>Todo with Server Actions</div>
-      <input />
-      <div>
-        <input type="checkbox" />
-        <div>Settle with ...</div>
-        <button>x</button>
-      </div>
+    <main className={styles.component}>
+      <TodoApp />
     </main>
   );
 }
