@@ -1,17 +1,17 @@
 .component {
-  width: 240px;
-
   display: flex;
+  width: 240px;
+  margin-bottom: 20px;
 }
 
 .input {
   /* flex-grow to fill the container */
   flex-grow: 1;
   flex-shrink: 1;
-  padding: 4px;
 
+  padding: 4px;
   border: solid 2px #8366f6;
-  border-right-style: none;
+  border-right-style: none; /* avoid affecting the button on the right */
 
   font-size: 16px;
 }
@@ -24,7 +24,7 @@
   color: transparent;
 }
 
-.plus {
+.button {
   /* fixed size */
   flex-grow: 0;
   flex-shrink: 0;
