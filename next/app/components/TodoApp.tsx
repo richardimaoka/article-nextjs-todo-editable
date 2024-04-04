@@ -15,6 +15,18 @@ export function TodoApp(props: Props) {
         <TodoItem
           todo={"Settle in a relaxing relaxing relaxing relaxing relaxing"}
         />
+        <TodoItem
+          todo={"Settle in a relaxing relaxing relaxing relaxing relaxing"}
+        />
+        <TodoItem
+          todo={"Settle in a relaxing relaxing relaxing relaxing relaxing"}
+        />
+        <TodoItem
+          todo={"Settle in a relaxing relaxing relaxing relaxing relaxing"}
+        />
+        <TodoItem
+          todo={"Settle in a relaxing relaxing relaxing relaxing relaxing"}
+        />
       </div>
     </form>
   );

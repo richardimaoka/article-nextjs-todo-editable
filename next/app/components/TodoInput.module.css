@@ -1,6 +1,6 @@
 .component {
   display: flex;
-  width: 240px;
+  width: 300px;
   margin-bottom: 20px;
 }
 
@@ -11,6 +11,7 @@
 
   padding: 4px;
   border: solid 2px #8366f6;
+  border-radius: 0px;
   border-right-style: none; /* avoid affecting the button on the right */
 
   font-size: 16px;

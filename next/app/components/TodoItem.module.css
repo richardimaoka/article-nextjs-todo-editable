@@ -1,13 +1,15 @@
 .component {
   display: flex;
   height: 36px;
-  width: 240px;
+  width: 300px;
   align-items: center;
 
   font-size: 16px;
   background-color: white;
 
   position: relative;
+
+  margin-bottom: 10px;
 }
 
 .checkbox {
