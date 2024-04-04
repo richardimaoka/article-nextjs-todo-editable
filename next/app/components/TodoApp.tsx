@@ -12,7 +12,9 @@ export function TodoApp(props: Props) {
       <Title />
       <div>
         <TodoInput />
-        <TodoItem todo={"Settle in a relaxing"} />
+        <TodoItem
+          todo={"Settle in a relaxing relaxing relaxing relaxing relaxing"}
+        />
       </div>
     </form>
   );

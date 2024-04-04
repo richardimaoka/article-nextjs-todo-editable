@@ -22,9 +22,11 @@
 
   /*** Then, style the checkbox ***/
   /* sizing the checkbox */
+  flex-grow: 0;
+  flex-shrink: 0; /* prevent shrinking */
   width: 20px;
   height: 20px;
-  border: 0.15em solid #8366f6;
+  border: 2px solid #8366f6;
 
   margin-left: 8px;
   margin-right: 16px;
@@ -32,6 +34,11 @@
 
 .text {
   flex-grow: 1;
+
+  /* ellipsis settings */
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; /* single-line text */
 }
 
 .button {
