@@ -7,14 +7,12 @@ import { useFormState } from "react-dom";
 
 export function TodoInput() {
   const ref = useRef<HTMLFormElement>(null);
+  const noError = "";
 
-  const [errorMessage, formAction] = useFormState(
-    createTodo,
-    "" /* no erro message*/
-  );
+  const [errorMessage, formAction] = useFormState(createTodo, noError);
 
   useEffect(() => {
-    if (errorMessage === "") {
+    if (errorMessage === noError) {
       ref.current?.reset();
     }
   });
