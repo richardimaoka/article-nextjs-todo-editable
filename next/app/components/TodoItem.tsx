@@ -8,7 +8,9 @@ interface Props {
 export function TodoItem(props: Props) {
   return (
     <div className={styles.component}>
-      <input type="checkbox" className={styles.checkbox} />
+      <label className={styles.label}>
+        <input type="checkbox" className={styles.checkbox} />
+      </label>
       <div className={styles.text}>{props.todo}</div>
       <button className={styles.button}>x</button>
     </div>

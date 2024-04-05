@@ -1,0 +1,28 @@
+/* label, drawn as checkbox */
+.label {
+  height: 16px;
+  width: 16px;
+  margin: 0px 8px;
+  border: solid 2px #8366f6;
+}
+
+/* browser native checkbox appears none */
+.checkbox {
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* when checked, draw checkmark */
+.checkbox:checked::after {
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  transform: rotate(50deg);
+  width: 4px;
+  height: 8px;
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
+  content: "";
+}

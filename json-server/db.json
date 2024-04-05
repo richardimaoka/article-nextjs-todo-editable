@@ -1,0 +1,44 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "todo": "Go for a morning walk in the park"
+    },
+    {
+      "id": "2",
+      "todo": "Have a picnic outdoors"
+    },
+    {
+      "id": "3",
+      "todo": "Practice mindfulness outside"
+    },
+    {
+      "id": "4",
+      "todo": "Explore a nearby hiking trail"
+    },
+    {
+      "id": "5",
+      "todo": "Swim in a pool or lake"
+    },
+    {
+      "id": "6",
+      "todo": "Try outdoor yoga or tai chi"
+    },
+    {
+      "id": "7",
+      "todo": "Plan a spontaneous road trip"
+    },
+    {
+      "id": "8",
+      "todo": "Take photos of the day's beauty"
+    },
+    {
+      "id": "8",
+      "todo": "Enjoy brunch at a café"
+    },
+    {
+      "id": "9",
+      "todo": "Have a barbecue or bonfire with loved ones"
+    }
+  ]
+}

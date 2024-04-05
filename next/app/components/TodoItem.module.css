@@ -12,26 +12,34 @@
   margin-bottom: 10px;
 }
 
+/* browser native checkbox appears none */
 .checkbox {
-  /*** Hide the browser's default checkbox ***/
-  /* Add if not using autoprefixer */
+  border-radius: 0;
   -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
-  /* For iOS < 15 to remove gradient background */
-  background-color: #fff;
-  /* Not removed via appearance */
-  margin: 0;
+}
 
-  /*** Then, style the checkbox ***/
-  /* sizing the checkbox */
-  flex-grow: 0;
-  flex-shrink: 0; /* prevent shrinking */
-  width: 20px;
-  height: 20px;
-  border: 2px solid #8366f6;
+/* label, drawn as checkbox */
+.label {
+  flex-shrink: 0;
+  height: 16px;
+  width: 16px;
+  margin: 0px 8px;
+  border: solid 2px #8366f6;
+}
 
-  margin-left: 8px;
-  margin-right: 16px;
+/* when checked, draw checkmark */
+.checkbox:checked::after {
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  transform: rotate(50deg);
+  width: 4px;
+  height: 8px;
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
+  content: "";
 }
 
 .text {

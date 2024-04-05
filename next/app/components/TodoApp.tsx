@@ -6,27 +6,23 @@ import { TodoItem } from "./TodoItem";
 
 interface Props {}
 
-export function TodoApp(props: Props) {
+type Todo = {
+  id: string;
+  todo: string;
+};
+
+export async function TodoApp(props: Props) {
+  const res = await fetch("http://localhost:3036/todos");
+  const todos: Todo[] = await res.json();
+
   return (
     <form className={styles.component}>
       <Title />
       <div>
         <TodoInput />
-        <TodoItem
-          todo={"Settle in a relaxing relaxing relaxing relaxing relaxing"}
-        />
-        <TodoItem
-          todo={"Settle in a relaxing relaxing relaxing relaxing relaxing"}
-        />
-        <TodoItem
-          todo={"Settle in a relaxing relaxing relaxing relaxing relaxing"}
-        />
-        <TodoItem
-          todo={"Settle in a relaxing relaxing relaxing relaxing relaxing"}
-        />
-        <TodoItem
-          todo={"Settle in a relaxing relaxing relaxing relaxing relaxing"}
-        />
+        {todos.map((t) => (
+          <TodoItem key={t.id} todo={t.todo} />
+        ))}
       </div>
     </form>
   );
