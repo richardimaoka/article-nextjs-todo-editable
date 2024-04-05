@@ -31,28 +31,28 @@ function augment(todos: Todo[]): AugmentedTodo[] {
 }
 
 export function TodoList(props: Props) {
-  const todos = augment(props.todos);
+  const todos = props.todos.reverse();
 
   return (
     <div className={styles.component}>
       {todos.map((t) => {
-        const height = 46; // height 36px + margin-bottom 10px
-        const topOffset = (t.prevPos - t.currentPos) * height;
-        console.log(t.id, topOffset);
+        // const height = 46; // height 36px + margin-bottom 10px
+        // const topOffset = (t.prevPos - t.currentPos) * height;
+
         return (
           <div
             className={styles.item}
             key={t.id}
             style={{ animationName: `move${t.id}` }}
           >
-            <style>{`@keyframes move${t.id} {
+            {/* <style>{`@keyframes move${t.id} {
                 0% {
                   top: ${topOffset}px;
                 }
                 100% {
                   top: 0px;
                 }
-              }`}</style>
+              }`}</style> */}
             <TodoItem todo={t.todo} id={t.id} done={t.done} />
           </div>
         );
