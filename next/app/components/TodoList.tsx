@@ -1,8 +1,7 @@
-"use client";
+import styles from "./TodoList.module.css";
 
 import { Todo } from "@/api/types";
 import { TodoItem } from "./item/TodoItem";
-import { useState } from "react";
 
 interface Props {
   todos: Todo[];
@@ -18,16 +17,46 @@ function compare(a: Todo, b: Todo): number {
   }
 }
 
-export function TodoList(props: Props) {
-  // const [todos, setTodos] = useState(props.todos);
+type AugmentedTodo = Todo & {
+  prevPos: number;
+  currentPos: number;
+};
 
-  const todos = props.todos.toSorted(compare);
+function augment(todos: Todo[]): AugmentedTodo[] {
+  const s1 = todos.map((t, i) => ({ ...t, prevPos: i }));
+  const s2 = s1.toSorted(compare);
+  const s3 = s2.map((t, i) => ({ ...t, currentPos: i }));
+
+  return s3;
+}
+
+export function TodoList(props: Props) {
+  const todos = augment(props.todos);
 
   return (
-    <div>
-      {todos.map((t) => (
-        <TodoItem key={t.id} todo={t.todo} id={t.id} done={t.done} />
-      ))}
+    <div className={styles.component}>
+      {todos.map((t) => {
+        const height = 46; // height 36px + margin-bottom 10px
+        const topOffset = (t.prevPos - t.currentPos) * height;
+        console.log(t.id, topOffset);
+        return (
+          <div
+            className={styles.item}
+            key={t.id}
+            style={{ animationName: `move${t.id}` }}
+          >
+            <style>{`@keyframes move${t.id} {
+                0% {
+                  top: ${topOffset}px;
+                }
+                100% {
+                  top: 0px;
+                }
+              }`}</style>
+            <TodoItem todo={t.todo} id={t.id} done={t.done} />
+          </div>
+        );
+      })}
     </div>
   );
 }
