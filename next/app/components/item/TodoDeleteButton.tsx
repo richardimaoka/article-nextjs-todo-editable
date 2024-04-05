@@ -15,7 +15,7 @@ export function TodoDeleteButton(props: Props) {
       >
         x
       </button>
-      <input hidden type="text" value={props.todoId} readOnly />
+      <input hidden type="text" name="todoId" value={props.todoId} readOnly />
     </>
   );
 }
