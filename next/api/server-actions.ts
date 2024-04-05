@@ -61,9 +61,10 @@ export async function deleteTodo(formData: FormData): Promise<string> {
   return "";
 }
 
-export async function updateDoneFlag(formData: FormData): Promise<string> {
-  console.log("invoking server updateDoneFlag", formData.get("currentDone"));
-
+async function updateDoneFlag(
+  targetDoneState: boolean,
+  formData: FormData
+): Promise<string> {
   const schema = z.object({
     todoId: z.string({
       invalid_type_error: "invalid todo ID",
@@ -71,11 +72,6 @@ export async function updateDoneFlag(formData: FormData): Promise<string> {
     todo: z.string({
       invalid_type_error: "invalid todo",
     }),
-    currentDone: z
-      .string({
-        invalid_type_error: "invalid currentDone flag",
-      })
-      .nullable(),
   });
 
   // throws upon error
@@ -87,8 +83,7 @@ export async function updateDoneFlag(formData: FormData): Promise<string> {
 
   const todoId = validatedFields.todoId;
   const todo = validatedFields.todo;
-  const inverseDoneFlag = validatedFields.currentDone !== "on";
-  const item: Todo = { id: todoId, todo: todo, done: inverseDoneFlag };
+  const item: Todo = { id: todoId, todo: todo, done: targetDoneState };
   const jsonPayload = JSON.stringify(item);
 
   console.log("invoking fetch", jsonPayload);
@@ -101,4 +96,14 @@ export async function updateDoneFlag(formData: FormData): Promise<string> {
   revalidatePath("/");
 
   return "";
+}
+
+export async function doneTodo(formData: FormData): Promise<string> {
+  console.log("invoking server action doneTodo");
+  return updateDoneFlag(true, formData);
+}
+
+export async function undoneTodo(formData: FormData): Promise<string> {
+  console.log("invoking server action undoneTodo");
+  return updateDoneFlag(false, formData);
 }
