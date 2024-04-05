@@ -41,3 +41,35 @@ export async function createTodo(formData: FormData): Promise<string> {
 
   return "";
 }
+
+export async function deleteTodo(formData: FormData): Promise<string> {
+  console.log("invoking server action deleteTodo");
+
+  const schema = z.object({
+    todoId: z.string({
+      invalid_type_error: "invalid todo ID",
+    }),
+  });
+
+  const validatedFields = schema.safeParse({
+    todoId: formData.get("todoId"),
+  });
+
+  // Return early if the form data is invalid
+  if (!validatedFields.success) {
+    const error =
+      validatedFields.error.flatten().fieldErrors?.todoId?.join(", ") ||
+      "some error happened";
+    return error;
+  }
+
+  const todoId = validatedFields.data.todoId;
+
+  await fetch(`http://localhost:3036/todos/${todoId}`, {
+    method: "DELETE",
+  });
+
+  revalidatePath("/");
+
+  return "";
+}

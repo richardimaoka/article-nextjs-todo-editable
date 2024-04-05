@@ -5,6 +5,7 @@ import { TodoText } from "./TodoText";
 
 interface Props {
   todo: string;
+  id: string;
   done?: boolean;
 }
 
@@ -20,7 +21,7 @@ export function TodoItem(props: Props) {
       </div>
 
       <div className={styles.button}>
-        <TodoDeleteButton />
+        <TodoDeleteButton todoId={props.id} />
       </div>
     </div>
   );

@@ -36,7 +36,7 @@ export async function TodoApp(props: Props) {
       <div>
         <TodoInput />
         {todos.map((t) => (
-          <TodoItem key={t.id} todo={t.todo} />
+          <TodoItem key={t.id} todo={t.todo} id={t.id} />
         ))}
       </div>
     </form>
