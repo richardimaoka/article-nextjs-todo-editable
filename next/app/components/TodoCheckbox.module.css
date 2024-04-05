@@ -1,5 +1,6 @@
 /* label, drawn as checkbox */
 .label {
+  flex-shrink: 0;
   height: 16px;
   width: 16px;
   margin: 0px 8px;
