@@ -9,7 +9,7 @@ interface Props {
 export function TodoText(props: Props) {
   return (
     <div className={styles.component}>
-      {props.todo}
+      <span className={props.done ? styles.done : ""}>{props.todo}</span>
       <input hidden type="text" name="todo" value={props.todo} readOnly />
       <input hidden type="text" name="todoId" value={props.todoId} readOnly />
     </div>

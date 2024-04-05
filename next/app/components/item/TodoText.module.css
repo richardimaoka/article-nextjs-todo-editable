@@ -4,3 +4,8 @@
   overflow: hidden;
   white-space: nowrap; /* single-line text */
 }
+
+.done {
+  text-decoration-line: line-through;
+  color: grey;
+}
