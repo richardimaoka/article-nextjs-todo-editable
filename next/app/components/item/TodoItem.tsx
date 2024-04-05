@@ -1,5 +1,7 @@
 import { TodoCheckbox } from "./TodoCheckbox";
+import { TodoDeleteButton } from "./TodoDeleteButton";
 import styles from "./TodoItem.module.css";
+import { TodoText } from "./TodoText";
 
 interface Props {
   todo: string;
@@ -10,8 +12,8 @@ export function TodoItem(props: Props) {
   return (
     <div className={styles.component}>
       <TodoCheckbox />
-      <div className={styles.text}>{props.todo}T</div>
-      <button className={styles.button}>x</button>
+      <TodoText todo={props.todo} done={props.done} />
+      <TodoDeleteButton />
     </div>
   );
 }

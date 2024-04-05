@@ -1,0 +1,8 @@
+.component {
+  flex-grow: 1;
+
+  /* ellipsis settings */
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; /* single-line text */
+}

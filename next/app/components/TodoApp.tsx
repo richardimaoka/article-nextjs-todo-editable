@@ -2,7 +2,7 @@ import styles from "./TodoApp.module.css";
 
 import { Title } from "./Title";
 import { TodoInput } from "./TodoInput";
-import { TodoItem } from "./TodoItem";
+import { TodoItem } from "./item/TodoItem";
 
 interface Props {}
 

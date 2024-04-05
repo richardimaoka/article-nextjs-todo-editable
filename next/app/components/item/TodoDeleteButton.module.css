@@ -1,0 +1,19 @@
+.component {
+  /* fixed size */
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+
+  /* center text */
+  line-height: 36px;
+  text-align: center;
+  font-size: 20px;
+
+  /* cancel user-agent style */
+  padding: 0px;
+
+  border-style: none;
+  color: grey;
+  background-color: white;
+}
