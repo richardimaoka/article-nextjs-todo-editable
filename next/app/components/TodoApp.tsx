@@ -1,15 +1,11 @@
 import styles from "./TodoApp.module.css";
 
+import { Todo } from "@/api/types";
 import { Title } from "./Title";
+import { TodoList } from "./TodoList";
 import { TodoInput } from "./TodoInput";
-import { TodoItem } from "./item/TodoItem";
 
 interface Props {}
-
-type Todo = {
-  id: string;
-  todo: string;
-};
 
 export async function TodoApp(props: Props) {
   const res = await fetch("http://localhost:3036/todos");
@@ -18,12 +14,8 @@ export async function TodoApp(props: Props) {
   return (
     <div className={styles.component}>
       <Title />
-      <div>
-        <TodoInput />
-        {todos.map((t) => (
-          <TodoItem key={t.id} todo={t.todo} id={t.id} />
-        ))}
-      </div>
+      <TodoInput />
+      <TodoList todos={todos} />
     </div>
   );
 }
