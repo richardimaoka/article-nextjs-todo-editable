@@ -1,3 +1,7 @@
+.button {
+  display: none;
+}
+
 /* label, drawn as checkbox */
 .label {
   display: block; /* to set width and height */

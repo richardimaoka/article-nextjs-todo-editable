@@ -75,8 +75,8 @@ export async function deleteTodo(formData: FormData): Promise<string> {
   return "";
 }
 
-export async function doneTodo(formData: FormData): Promise<string> {
-  console.log("invoking server action doneTodo");
+export async function updateDoneFlag(formData: FormData): Promise<string> {
+  console.log("invoking server updateDoneFlag");
 
   const schema = z.object({
     todoId: z.string({
@@ -106,50 +106,6 @@ export async function doneTodo(formData: FormData): Promise<string> {
   const todoId = validatedFields.data.todoId;
   const todo = validatedFields.data.todo;
   const item: Todo = { id: todoId, todo: todo, done: true };
-  const jsonPayload = JSON.stringify(item);
-
-  await fetch(`http://localhost:3036/todos/${todoId}`, {
-    method: "PATCH",
-    headers: { "Content-Type": "application/json" },
-    body: jsonPayload,
-  });
-
-  revalidatePath("/");
-
-  return "";
-}
-
-export async function undoneTodo(formData: FormData): Promise<string> {
-  console.log("invoking server action undoneTodo");
-
-  const schema = z.object({
-    todoId: z.string({
-      invalid_type_error: "invalid todo ID",
-    }),
-    todo: z.string({
-      invalid_type_error: "invalid todo",
-    }),
-  });
-
-  const validatedFields = schema.safeParse({
-    todoId: formData.get("todoId"),
-    todo: formData.get("todo"),
-  });
-
-  // Return early if the form data is invalid
-  if (!validatedFields.success) {
-    const error1 =
-      validatedFields.error.flatten().fieldErrors?.todoId?.join(", ") ||
-      "todoId error happened";
-    const error2 =
-      validatedFields.error.flatten().fieldErrors?.todo?.join(", ") ||
-      "todo some error happened";
-    return error1 + ", " + error2;
-  }
-
-  const todoId = validatedFields.data.todoId;
-  const todo = validatedFields.data.todo;
-  const item: Todo = { id: todoId, todo: todo, done: false };
   const jsonPayload = JSON.stringify(item);
 
   await fetch(`http://localhost:3036/todos/${todoId}`, {

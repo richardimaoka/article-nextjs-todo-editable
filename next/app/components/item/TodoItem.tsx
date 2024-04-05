@@ -18,7 +18,7 @@ export function TodoItem(props: Props) {
         </div>
 
         <div className={styles.text}>
-          <TodoText todo={props.todo} done={props.done} />
+          <TodoText todo={props.todo} done={props.done} todoId={props.id} />
         </div>
 
         <div className={styles.button}>
