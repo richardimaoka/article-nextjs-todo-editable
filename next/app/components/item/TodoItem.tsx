@@ -11,7 +11,9 @@ interface Props {
 export function TodoItem(props: Props) {
   return (
     <div className={styles.component}>
-      <TodoCheckbox />
+      <div className={styles.checkbox}>
+        <TodoCheckbox />
+      </div>
 
       <div className={styles.text}>
         <TodoText todo={props.todo} done={props.done} />

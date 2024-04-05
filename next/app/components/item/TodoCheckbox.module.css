@@ -1,6 +1,6 @@
 /* label, drawn as checkbox */
 .label {
-  flex-shrink: 0;
+  display: block; /* to set width and height */
   height: 16px;
   width: 16px;
   margin: 0px 8px;

@@ -14,6 +14,11 @@
   align-items: center;
 }
 
+.checkbox {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
 .text {
   flex-grow: 1;
   overflow: hidden;
