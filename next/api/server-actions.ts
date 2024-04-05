@@ -15,19 +15,12 @@ export async function createTodo(_: any, formData: FormData): Promise<string> {
     }),
   });
 
-  const validatedFields = schema.safeParse({
+  // throws upon error
+  const validatedFields = schema.parse({
     todo: formData.get("todo"),
   });
 
-  // Return early if the form data is invalid
-  if (!validatedFields.success) {
-    const error =
-      validatedFields.error.flatten().fieldErrors?.todo?.join(", ") ||
-      "some error happened";
-    return error;
-  }
-
-  const todo = validatedFields.data.todo;
+  const todo = validatedFields.todo;
   const uuid = crypto.randomUUID();
   const item = { todo: todo, id: uuid };
   const jsonPayload = JSON.stringify(item);
@@ -52,19 +45,12 @@ export async function deleteTodo(formData: FormData): Promise<string> {
     }),
   });
 
-  const validatedFields = schema.safeParse({
+  // throws upon error
+  const validatedFields = schema.parse({
     todoId: formData.get("todoId"),
   });
 
-  // Return early if the form data is invalid
-  if (!validatedFields.success) {
-    const error =
-      validatedFields.error.flatten().fieldErrors?.todoId?.join(", ") ||
-      "some error happened";
-    return error;
-  }
-
-  const todoId = validatedFields.data.todoId;
+  const todoId = validatedFields.todoId;
 
   await fetch(`http://localhost:3036/todos/${todoId}`, {
     method: "DELETE",
@@ -85,37 +71,23 @@ export async function updateDoneFlag(formData: FormData): Promise<string> {
     todo: z.string({
       invalid_type_error: "invalid todo",
     }),
-    currentDone: z.boolean({
-      invalid_type_error: "invalid currentDone flag",
-    }),
+    currentDone: z
+      .string({
+        invalid_type_error: "invalid currentDone flag",
+      })
+      .nullable(),
   });
 
-  const validatedFields = schema.safeParse({
+  // throws upon error
+  const validatedFields = schema.parse({
     todoId: formData.get("todoId"),
     todo: formData.get("todo"),
     currentDone: formData.get("currentDone"),
   });
 
-  // Return early if the form data is invalid
-  if (!validatedFields.success) {
-    const error1 =
-      validatedFields.error.flatten().fieldErrors?.todoId?.join(", ") ||
-      "todoId error happened";
-    const error2 =
-      validatedFields.error.flatten().fieldErrors?.todo?.join(", ") ||
-      "todo some error happened";
-    const error3 =
-      validatedFields.error.flatten().fieldErrors?.currentDone?.join(", ") ||
-      "currentDone some error happened";
-
-    console.log(error1 + ", " + error2 + ", " + error3);
-    return error1 + ", " + error2 + ", " + error3;
-  }
-
-  console.log("toododlee");
-  const todoId = validatedFields.data.todoId;
-  const todo = validatedFields.data.todo;
-  const inverseDoneFlag = !validatedFields.data.currentDone;
+  const todoId = validatedFields.todoId;
+  const todo = validatedFields.todo;
+  const inverseDoneFlag = validatedFields.currentDone !== "on";
   const item: Todo = { id: todoId, todo: todo, done: inverseDoneFlag };
   const jsonPayload = JSON.stringify(item);
 

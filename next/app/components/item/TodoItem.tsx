@@ -11,20 +11,18 @@ interface Props {
 
 export function TodoItem(props: Props) {
   return (
-    <form>
-      <div className={styles.component}>
-        <div className={styles.checkbox}>
-          <TodoCheckbox done={props.done} />
-        </div>
-
-        <div className={styles.text}>
-          <TodoText todo={props.todo} done={props.done} todoId={props.id} />
-        </div>
-
-        <div className={styles.button}>
-          <TodoDeleteButton todoId={props.id} />
-        </div>
+    <div className={styles.component}>
+      <div className={styles.checkbox}>
+        <TodoCheckbox done={props.done} />
       </div>
-    </form>
+
+      <div className={styles.text}>
+        <TodoText todo={props.todo} done={props.done} todoId={props.id} />
+      </div>
+
+      <div className={styles.button}>
+        <TodoDeleteButton todoId={props.id} />
+      </div>
+    </div>
   );
 }
