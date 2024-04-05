@@ -3,7 +3,7 @@
     {
       "id": "3",
       "todo": "Practice mindfulness outside",
-      "done": true
+      "done": false
     },
     {
       "id": "4",
@@ -37,7 +37,8 @@
     },
     {
       "id": "b1fefe10-3337-454a-b2af-306674b2de17",
-      "todo": "hhh"
+      "todo": "hhh",
+      "done": false
     }
   ]
 }

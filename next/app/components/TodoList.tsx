@@ -25,11 +25,9 @@ export function TodoList(props: Props) {
 
   return (
     <div>
-      <form>
-        {todos.map((t) => (
-          <TodoItem key={t.id} todo={t.todo} id={t.id} done={t.done} />
-        ))}
-      </form>
+      {todos.map((t) => (
+        <TodoItem key={t.id} todo={t.todo} id={t.id} done={t.done} />
+      ))}
     </div>
   );
 }
