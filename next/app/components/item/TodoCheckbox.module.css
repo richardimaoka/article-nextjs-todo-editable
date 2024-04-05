@@ -1,5 +1,7 @@
 .button {
-  display: none;
+  border-style: none;
+  padding: 0px;
+  background-color: white;
 }
 
 /* label, drawn as checkbox */

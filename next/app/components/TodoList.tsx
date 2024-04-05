@@ -26,7 +26,7 @@ export function TodoList(props: Props) {
   return (
     <div>
       {todos.map((t) => (
-        <TodoItem key={t.id} todo={t.todo} id={t.id} />
+        <TodoItem key={t.id} todo={t.todo} id={t.id} done={t.done} />
       ))}
     </div>
   );

@@ -18,19 +18,17 @@ export function TodoInput() {
   }
 
   return (
-    <form ref={ref} action={formAction}>
-      <div className={styles.component}>
-        <input
-          className={styles.input}
-          placeholder="enter todo here"
-          required
-          type="text"
-          name="todo"
-        />
-        <button type="submit" className={styles.button}>
-          &#43;{/* `+` sign */}
-        </button>
-      </div>
+    <form className={styles.component} ref={ref} action={formAction}>
+      <input
+        className={styles.input}
+        placeholder="enter todo here"
+        required
+        type="text"
+        name="todo"
+      />
+      <button type="submit" className={styles.button}>
+        &#43;{/* `+` sign */}
+      </button>
     </form>
   );
 }

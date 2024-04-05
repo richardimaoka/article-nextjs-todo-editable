@@ -14,7 +14,7 @@ export function TodoItem(props: Props) {
     <form>
       <div className={styles.component}>
         <div className={styles.checkbox}>
-          <TodoCheckbox />
+          <TodoCheckbox done={props.done} />
         </div>
 
         <div className={styles.text}>
