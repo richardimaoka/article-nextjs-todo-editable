@@ -6,7 +6,7 @@ import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { Todo } from "./types";
 
-export async function createTodo(formData: FormData): Promise<string> {
+export async function createTodo(_: any, formData: FormData): Promise<string> {
   console.log("invoking server action createTodo");
 
   const schema = z.object({
