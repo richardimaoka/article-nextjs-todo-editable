@@ -12,8 +12,14 @@ export function TodoItem(props: Props) {
   return (
     <div className={styles.component}>
       <TodoCheckbox />
-      <TodoText todo={props.todo} done={props.done} />
-      <TodoDeleteButton />
+
+      <div className={styles.text}>
+        <TodoText todo={props.todo} done={props.done} />
+      </div>
+
+      <div className={styles.button}>
+        <TodoDeleteButton />
+      </div>
     </div>
   );
 }

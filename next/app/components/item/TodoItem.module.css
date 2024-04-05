@@ -1,8 +1,6 @@
 .component {
-  display: flex;
   height: 36px;
   width: 300px;
-  align-items: center;
 
   font-size: 16px;
   background-color: white;
@@ -10,4 +8,19 @@
   position: relative;
 
   margin-bottom: 10px;
+
+  /* flex setttings */
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.button {
+  /* fixed size */
+  flex-grow: 0;
+  flex-shrink: 0;
 }
