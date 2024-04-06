@@ -1,34 +1,32 @@
 {
   "todos": [
     {
-      "id": "3",
-      "todo": "Practice mindfulness outside",
-      "done": false
-    },
-    {
-      "id": "4",
-      "todo": "Explore a nearby hiking trail",
-      "done": false
-    },
-    {
-      "id": "5",
+      "id": "f08f541b-471b-4016-93f7-3b6c567f039f",
       "todo": "Swim in a pool or lake",
       "done": false
     },
     {
-      "id": "6",
+      "id": "223510fd-c3f8-4442-8397-112eec84c59c",
       "todo": "Try outdoor yoga or tai chi",
       "done": false
     },
     {
-      "id": "7",
+      "id": "4e8e728c-d0f2-4a14-ae2b-8d0738043e46",
       "todo": "Plan a spontaneous road trip",
       "done": false
     },
     {
-      "id": "8",
+      "id": "1f0b20dc-cc68-4ab0-a8af-8d02006ddb2a",
       "todo": "Take photos of the day's beauty",
       "done": false
+    },
+    {
+      "id": "8e5926d9-4e1b-4e62-b4fb-8fbb0ed39110",
+      "todo": "Enjoy brunch at a café"
+    },
+    {
+      "id": "d0293426-1e0a-426f-b143-6f5d93fce8f9",
+      "todo": "Have a barbecue or bonfire with loved ones"
     }
   ]
 }
