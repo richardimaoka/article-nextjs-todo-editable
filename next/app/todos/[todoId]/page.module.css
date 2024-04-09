@@ -1,0 +1,7 @@
+.component {
+  margin: 0 auto;
+  max-width: 600px;
+  height: 100svh;
+  overflow-y: auto;
+  background-color: #f0f0f0;
+}
