@@ -11,7 +11,11 @@ export default async function Page(props: Props) {
   return (
     <main className={styles.component}>
       <div className={styles.card}>
-        <TodoCard title={todo.todo} description={todo.description} />
+        <TodoCard
+          todoId={todo.id}
+          title={todo.todo}
+          description={todo.description}
+        />
       </div>
     </main>
   );

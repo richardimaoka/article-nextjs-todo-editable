@@ -80,20 +80,29 @@ export async function updateTodo(formData: FormData): Promise<string> {
   const validatedFields = schema.parse({
     todoId: formData.get("todoId"),
     todo: formData.get("todo"),
-    currentDone: formData.get("currentDone"),
+    description: formData.get("description"),
   });
 
-  const todoId = validatedFields.todoId;
+  const item: Todo = {
+    id: validatedFields.todoId,
+    todo: validatedFields.todo,
+    description: validatedFields.description,
+  };
+  const jsonPayload = JSON.stringify(item);
 
-  await fetch(`http://localhost:3036/todos/${todoId}`, {
+  await fetch(`http://localhost:3036/todos/${item.id}`, {
     method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: jsonPayload,
   });
 
   revalidatePath("/");
+  revalidatePath(`/todos/${item.id}`);
 
   return "";
 }
 
+// unexposed internal function
 async function updateDoneFlag(
   targetDoneState: boolean,
   formData: FormData
@@ -111,7 +120,6 @@ async function updateDoneFlag(
   const validatedFields = schema.parse({
     todoId: formData.get("todoId"),
     todo: formData.get("todo"),
-    currentDone: formData.get("currentDone"),
   });
 
   const todoId = validatedFields.todoId;
