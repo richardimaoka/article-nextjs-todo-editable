@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./TodoCardTitle.module.css";
 
 interface Props {
@@ -11,6 +13,9 @@ export function TodoCardTitle(props: Props) {
       className={styles.component}
       defaultValue={props.title}
       placeholder="enter title here"
+      onBlur={async (e) => {
+        e.currentTarget.form?.requestSubmit();
+      }}
     />
   );
 }

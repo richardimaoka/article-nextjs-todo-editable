@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import styles from "./TodoCard.module.css";
 import { TodoCardTitle } from "./TodoCardTitle";
 import { TodoCardDescription } from "./TodoCardDescription";
@@ -13,8 +10,6 @@ interface Props {
 }
 
 export function TodoCard(props: Props) {
-  const [state, setState] = useState(true);
-
   return (
     <form className={styles.form} action={updateTodo}>
       <div className={styles.component}>
@@ -29,7 +24,7 @@ export function TodoCard(props: Props) {
         </div>
 
         <div className={styles.button}>
-          {state && <button type="submit">save todo</button>}
+          <button type="submit">save todo</button>
         </div>
       </div>
     </form>

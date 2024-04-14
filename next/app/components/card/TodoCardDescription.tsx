@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./TodoCardDescription.module.css";
 
 interface Props {
@@ -13,6 +15,9 @@ export function TodoCardDescription(props: Props) {
         className={styles.textarea}
         defaultValue={props.description}
         placeholder="enter description here"
+        onBlur={async (e) => {
+          e.currentTarget.form?.requestSubmit();
+        }}
       />
     </div>
   );
