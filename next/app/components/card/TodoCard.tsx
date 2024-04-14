@@ -1,4 +1,9 @@
+"use client";
+
+import { useState } from "react";
 import styles from "./TodoCard.module.css";
+import { TodoCardTitle } from "./TodoCardTitle";
+import { TodoCardDescription } from "./TodoCardDescription";
 
 interface Props {
   todoId?: string;
@@ -7,13 +12,23 @@ interface Props {
 }
 
 export function TodoCard(props: Props) {
+  const [state, setState] = useState(true);
+
   return (
-    <div className={styles.component}>
-      <input className={styles.title} defaultValue={props.title} />
-      <h2 className={styles.descriptionTitle}>description</h2>
-      {props.description && (
-        <div className={styles.description}>{props.description}</div>
-      )}
-    </div>
+    <form className={styles.form}>
+      <div className={styles.component}>
+        <div className={styles.title}>
+          <TodoCardTitle title={props.title} />
+        </div>
+
+        <div className={styles.description}>
+          <TodoCardDescription description={props.description} />
+        </div>
+
+        <div className={styles.button}>
+          {state && <button type="submit">save todo</button>}
+        </div>
+      </div>
+    </form>
   );
 }

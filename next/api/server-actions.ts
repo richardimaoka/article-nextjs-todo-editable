@@ -61,6 +61,39 @@ export async function deleteTodo(formData: FormData): Promise<string> {
   return "";
 }
 
+export async function updateTodo(formData: FormData): Promise<string> {
+  console.log("invoking server action updateTodo");
+
+  const schema = z.object({
+    todoId: z.string({
+      invalid_type_error: "invalid todo ID",
+    }),
+    todo: z.string({
+      invalid_type_error: "invalid todo",
+    }),
+    description: z.string({
+      invalid_type_error: "invalid description",
+    }),
+  });
+
+  // throws upon error
+  const validatedFields = schema.parse({
+    todoId: formData.get("todoId"),
+    todo: formData.get("todo"),
+    currentDone: formData.get("currentDone"),
+  });
+
+  const todoId = validatedFields.todoId;
+
+  await fetch(`http://localhost:3036/todos/${todoId}`, {
+    method: "PATCH",
+  });
+
+  revalidatePath("/");
+
+  return "";
+}
+
 async function updateDoneFlag(
   targetDoneState: boolean,
   formData: FormData
