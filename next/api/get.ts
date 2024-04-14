@@ -9,6 +9,5 @@ export async function getTodo(id: string): Promise<Todo> {
   }
 
   const todo = (await res.json()) as Todo;
-
   return todo;
 }
