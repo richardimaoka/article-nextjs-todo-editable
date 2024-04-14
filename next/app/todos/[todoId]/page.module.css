@@ -16,26 +16,3 @@
 
   background-color: #f0f0f0;
 }
-
-/**************************/
-/**************************/
-
-.inner {
-  padding: 10px;
-}
-
-.title {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 30px;
-}
-
-.descriptionTitle {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.description {
-  font-size: 16px;
-}

@@ -9,8 +9,11 @@ interface Props {
 export function TodoCard(props: Props) {
   return (
     <div className={styles.component}>
-      <h1 className={styles.title}>{props.title}</h1>
-      <div className={styles.description}>{props.description}</div>
+      <input className={styles.title} defaultValue={props.title} />
+      <h2 className={styles.descriptionTitle}>description</h2>
+      {props.description && (
+        <div className={styles.description}>{props.description}</div>
+      )}
     </div>
   );
 }

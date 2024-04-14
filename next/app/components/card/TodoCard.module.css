@@ -3,8 +3,29 @@
 }
 
 .title {
+  width: 100%;
   font-size: 28px;
   font-weight: 700;
+  margin-bottom: 30px;
+
+  background-color: inherit;
+  border-style: none;
+}
+
+.title:hover {
+  background-color: white;
+  outline: 2px solid #d4d4d4;
+}
+
+.title:focus {
+  background-color: white;
+  outline: 2px solid #444444;
+}
+
+.descriptionTitle {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
 .description {
