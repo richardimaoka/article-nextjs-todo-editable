@@ -1,0 +1,12 @@
+.component {
+  padding: 10px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.description {
+  font-size: 16px;
+}
