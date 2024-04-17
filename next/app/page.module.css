@@ -1,7 +1,9 @@
 .component {
   margin: 0 auto;
   max-width: 600px;
+  padding-top: 400px;
   height: 100svh;
+  box-sizing: border-box;
   overflow-y: auto;
   background-color: #f0f0f0;
 }
