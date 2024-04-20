@@ -12,6 +12,7 @@ export function TodoCardDescription(props: Props) {
       <h2 className={styles.title}>description</h2>
       <textarea
         name="description"
+        aria-label="description"
         className={styles.textarea}
         defaultValue={props.description}
         placeholder="enter description here"

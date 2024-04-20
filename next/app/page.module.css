@@ -1,7 +1,7 @@
 .component {
   margin: 0 auto;
   max-width: 600px;
-  padding-top: 400px;
+  padding-top: 40%;
   height: 100svh;
   box-sizing: border-box;
   overflow-y: auto;
